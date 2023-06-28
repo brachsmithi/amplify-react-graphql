@@ -61,7 +61,7 @@ const App = ({ signOut }) => {
   async function deleteNote({ id }) {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
-    await Storage.remove(name);
+    await Storage.remove(note);
     await API.graphql({
       query: deleteNoteMutation,
       variables: { input: { id } },
@@ -113,7 +113,7 @@ const App = ({ signOut }) => {
               {note.name}
             </Text>
             <Text as="span">{note.description}</Text>
-            {note.image && {
+            {note.image && (
               <Image
                 src={note.image}
                 alt={`visual aid for ${notes.name}`}
