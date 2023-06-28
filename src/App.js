@@ -113,7 +113,7 @@ const App = ({ signOut }) => {
               {note.name}
             </Text>
             <Text as="span">{note.description}</Text>
-            {note.image && {
+            {note.image && (
               <Image
                 src={note.image}
                 alt={`visual aid for ${notes.name}`}
